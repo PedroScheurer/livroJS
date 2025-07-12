@@ -14,6 +14,34 @@ pre {
     font-size: 1.4em;
 }
 
+
+input[type="submit"] {
+  background-color: greenyellow;
+  color: aliceblue;
+  border: none;
+  border-radius: 5%;
+  padding: 0.5em 2em 0.5em 2em;
+}
+input[type="submit"]:hover {
+  background-color: green;
+  transition: background-color 0.5s;
+}
+
+input[type="button"]{
+    background-color: white;
+    border: 1px solid blue;
+    border-radius: 5%;
+    color: blue;
+}
+
+input[type="button"]:hover{
+    background-color: blue;
+    color: white;
+    transition: all 0.5s;
+}
+
+
+
 @media (max-width: 780px) {
     h1 {
         font-size: small;
