@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://m.media-amazon.com/images/I/71X7hMhMEUL._SY425_.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Exercício 7.8</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Programa Caixa da Loja</h1>
+        <form action="">
+            <div class="form-group">
+                <div class="row mb-2">
+                    <div class="col-auto">
+                        <label for="inDataVencimento">Data de vencimento:</label>
+                        <input type="date" id="inDataVencimento" class="form-control" required autofocus>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-auto">
+                        <label for="inValorConta">Valor da Conta:</label>
+                    </div>
+                    <div class="col">
+                        <input type="number" id="inValorConta" class="alinha-direita form-control w-50" min="0" step="0.01" required>
+                        <input type="submit" value="Calcular Multa e Juros">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-auto">
+                        <label for="inValorMulta">Valor da Multa:</label>
+                        <input type="number" id="outMulta" class="alinha-direita form-control" min="0" step="0.01" readonly>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-auto">
+                        <label for="inValorJuros">Valor da Juros:</label>
+                        <input type="number" id="outJuros" class="alinha-direita form-control" min="0" step="0.01" readonly>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-auto">
+                        <label for="outTotal">Total a pagar:</label>
+                    </div>
+                    <div class="col">
+                        <input type="number" id="outTotal" class="alinha-direita form-control w-50" readonly>
+                        <input type="reset" value="Nova conta">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script src="js/ex7_8.js"></script>
+</body>
+
+</html>
