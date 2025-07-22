@@ -16,7 +16,7 @@
         <h1>Multa de Trânsito</h1>
         <form action="">
             <div class="form-group row mb-3">
-                <label for="inDataInfracao" class="col-sm-4 col-lg-2 col-form-label">Data da Infração: </label>
+                <label for="inDataInfracao"class="col-sm-4 col-lg-2 col-form-label">Data da Infração: </label>
                 <div class="col-sm-4">
                     <input type="date" id="inDataInfracao" class="form-control" required autofocus>
                 </div>
@@ -24,18 +24,18 @@
             <div class="form-group row mb-3">
                 <label for="inValorMulta" class="col-sm-4 col-lg-2 col-form-label">Valor da Multa: </label>
                 <div class="col-sm-4">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">R$</div>
-                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">R$</div>
+                        </div>
                         <input type="number" id="inValorMulta" class="form-control" min="0" step="0.01">
+                    </div>
                 </div>
-            </div>
-            <div class="row my-3">
-                <div class="col-auto">
-                    <input type="submit" value="Calcular Data Limite e Valor com Desconto">
+                <div class="row my-3">
+                    <div class="col-auto">
+                        <input type="submit" value="Calcular Data Limite e Valor com Desconto">
+                    </div>
                 </div>
-            </div>
         </form>
         <h3 id="outDataLimite"></h3>
         <h3 id="outValorComDesconto"></h3>
