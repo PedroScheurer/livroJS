@@ -22,6 +22,12 @@ h1 {
     padding: 0.5em 0 0.5em 0;
 }
 
+.exibe span,
+.exibe select {
+display: inline-block;
+vertical-align: middle;
+}
+
 .detalhes {
     width: 380px;
 }
