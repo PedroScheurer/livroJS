@@ -1,0 +1,112 @@
+.fonte-azul {
+    color: blue;
+}
+.oculta {
+    display: none;
+}
+.exibe {
+    display: inline;
+}
+.italico {
+    font-style: italic;
+}
+pre {
+    font-size: 1.2em;
+}
+
+h1 {
+    font-weight: 300;
+    text-align: center;
+    border-bottom: 1px solid gray;
+    margin-bottom: 0.5em;
+    padding: 0.5em 0 0.5em 0;
+}
+
+.exibe span,
+.exibe select {
+display: inline-block;
+vertical-align: middle;
+}
+
+.detalhes {
+    width: 380px;
+}
+
+span {
+    margin-left: 70px;
+}
+
+select {
+    width: 150px;
+}
+
+input[type="submit"] {
+  background-color: greenyellow;
+  color: aliceblue;
+  border: none;
+  border-radius: 5%;
+  padding: 0.5em 2em 0.5em 2em;
+}
+input[type="submit"]:hover {
+  background-color: green;
+  transition: background-color 0.5s;
+}
+
+input[type="button"]{
+    background-color: white;
+    border: 1px solid blue;
+    border-radius: 5%;
+    color: blue;
+}
+
+input[type="button"]:hover{
+    background-color: blue;
+    color: white;
+    transition: all 0.5s;
+}
+
+.entre-letras {
+    letter-spacing: 0.3em;
+}
+
+.alinha-direita {
+    text-align: right;
+}
+
+.cores-Brasil {
+    color: black;
+    background-color: red;
+}
+
+.cores-Pelotas {
+    color: blue;
+    background-color: yellow;
+}
+
+.cores-Farroupilha {
+    color: green;
+    background-color: white;
+}
+.cores-Internacional {
+    color: white;
+    background-color: red;
+}
+.cores-Gremio {
+    color: white;
+    background-color: blue;
+}
+
+@media (max-width: 780px) {
+    /* h1 {
+        font-size: xx-large;
+    } */
+    input[type="submit"]{
+        display: block;
+        justify-content: center;
+    }
+}
+@media (max-width: 1200px) {
+    /* h1 {
+        font-size: x-large;
+    } */
+}
