@@ -1,13 +1,14 @@
 const frm = document.querySelector("form")
 const imClube = document.getElementById("imgClube")
 const dvTitulo = document.getElementById("divTitulo")
-const inRadios = document.querySelectorAll("input")
+const inRadios = dvTitulo.querySelectorAll("input")
+const respVisita = document.getElementById("visitas")
+
+const clubes = [
+    "Internacional", "Gremio", "Brasil", "Pelotas","Farroupilha"
+]
 
 const trocarClube = () => {
-    const clubes = [
-        "Internacional", "Gremio", "Brasil", "Pelotas","Farroupilha"
-    ]
-    
     let selecao
     
     for(let i = 0; i < inRadios.length; i++){
@@ -35,21 +36,27 @@ const trocarClube = () => {
 const verificarClube = () => {
     if (localStorage.getItem("clube")){
         const clube = localStorage.getItem("clube")
-        if(clube === "Internacional"){
-            inRadios[0].checked = true
-        } else if(clube === "Gremio") {
-            inRadios[1].checked = true
-        } else if(clube === "Brasil") {
-            inRadios[2].checked = true
-        } else if(clube === "Pelotas") {
-            inRadios[3].checked = true
-        } else if(clube === "Farroupilha") {
-            inRadios[4].checked = true
-        }
+        for(let i = 0; i < clubes.length; i++){
+            if(clube === clubes[i]){
+                inRadios[i].checked = true
+            }
+        }    
         trocarClube()
     }
 }
 
+const visitas = () => {
+    if(!localStorage.getItem("numVisitas")){
+        respVisita.innerText = "Muito Bem-Vindo! Esta é a sua primeira visita ao nosso site."
+        localStorage.setItem("numVisitas", 1)
+        return
+    }
+    let numVisitas = Number(localStorage.getItem("numVisitas"))
+    localStorage.setItem("numVisitas", numVisitas+1)
+    respVisita.innerText = `Que bom que você voltou! Esta é a sua visita de número ${localStorage.getItem("numVisitas")} ao nosso site.`
+}
+
+window.addEventListener("load", visitas)
 window.addEventListener("load", verificarClube)
 for(const inRadio of inRadios){
     inRadio.addEventListener("change", trocarClube)
