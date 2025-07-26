@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://m.media-amazon.com/images/I/71X7hMhMEUL._SY425_.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Exercício 10.1</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8" id="divQuadro">
+                <h1>Tarefas do Dia (a realizar)</h1>
+                <form action="">
+                    <p><label for="inTarefa">Tarefa:</label>
+                        <input type="text" id="inTarefa" class="form-control" required autofocus>
+                    </p>
+                    <p><input type="submit" class="btn btn-primary" value="Adicionar &#10003"></p>
+                    <p><input type="button" id="btSelecionar" class="btn btn-info" value="Selecionar &#8645"></p>
+                    <p><input type="button" id="btRetirar" class="btn btn-danger" value="Retirar Selecionada &#10007"></p>
+                    <p><input type="button" id="btGravar" class="btn btn-success" value="Gravar &#9673"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script src="js/ex10_1.js"></script>
+</body>
+
+</html>
