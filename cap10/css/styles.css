@@ -127,6 +127,18 @@ img.moeda0-10{
     margin-bottom: 5px;
 }
 
+img.velas{
+    height: 170px;
+    width: 100px;
+    margin: 5px 5px 0 0;
+}
+
+.lista-times{
+    font-style: italic;
+    margin: 1em 0 1em 0;
+    text-align: end;
+}
+
 @media (max-width: 780px) {
     /* h1 {
         font-size: xx-large;
