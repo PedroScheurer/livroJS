@@ -30,3 +30,7 @@ img.poltrona{
 #divPalco{
     text-align: center;
 }
+
+.corFundo{
+    background-color: chocolate;
+}
