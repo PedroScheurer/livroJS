@@ -9,9 +9,9 @@ const App = () => {
     <>
       <MenuSuperior />
       <Routes>
-        <Route path="/" element={<InclusaoLivros />} />
-        <Route path="/" element={<ManutencaoLivros />} />
         <Route path="/" element={<ResumoLivros />} />
+        <Route path="/manut" element={<ManutencaoLivros />} />
+        <Route path="/inclusao" element={<InclusaoLivros />} />
       </Routes>
     </>
   )
