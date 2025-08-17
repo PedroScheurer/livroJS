@@ -52,7 +52,6 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
     const {id} = req.params;
-    console.log("ID recebido:", id);
     try {
         await dbKnex("livros").where({id}).del();
         res.status(200).json();
