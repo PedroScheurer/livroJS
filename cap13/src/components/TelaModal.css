@@ -1,0 +1,10 @@
+@keyframes modalAppear {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-modal {
+  animation: modalAppear 0.2s ease-out forwards;
+}

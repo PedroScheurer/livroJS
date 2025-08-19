@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
 import { inAxios } from "../config.axios";
+import Modal from "./TelaModal"
 
 const ResumoLivros = () => {
     const [resumo, setResumo] = useState([]);
     const [grafico, setGrafico] = useState([])
+    const [aberto, setAberto] = useState(false);
+    const [erro, setErro] = useState("")
 
     const obterDados = async () => {
         try {
@@ -17,8 +20,15 @@ const ResumoLivros = () => {
                 arrayGrafico.push([dado.ano.toString(), dado.total])
             );
             setGrafico(arrayGrafico);
+            setErro("");
         } catch (error) {
-            alert(`Erro... Não foi possível obter os dados: ${error}`);
+            if (error.response) {
+                setErro(error.response.data.mensagem || "Erro no servidor");
+            } else {
+                setErro("Erro de conexão com o servidor");
+            }
+
+            setAberto(true);
         }
     };
 
@@ -27,50 +37,57 @@ const ResumoLivros = () => {
     }, []);
 
     return (
-        <div className="container">
-            <h4 className="mt-3">Resumo</h4>
-            <div className="container-fluid ms-5 ps-5">
-                <span className="btn btn-outline-primary btn-lg">
-                    <p className="badge bg-danger">{resumo.num}</p>
-                    <p>N. de Livros Cadastrados</p>
-                </span>
-                <span className="btn btn-outline-primary btn-lg mx-2">
-                    <p className="badge bg-danger">
-                        {Number(resumo.soma).toLocaleString("pt-br", { minimumFractionDigits: 2 })}
-                    </p>
-                    <p>Total Investido em Livros</p>
-                </span>
-                <span className="btn btn-outline-primary btn-lg me-2">
-                    <p className="badge bg-danger">
-                        {Number(resumo.maior).toLocaleString("pt-br", { minimumFractionDigits: 2 })}
-                    </p>
-                    <p>Maior Preço Cadastrado</p>
-                </span>
-                <span className="btn btn-outline-primary btn-lg">
-                    <p className="badge bg-danger">
-                        {Number(resumo.media).toLocaleString("pt-br", { minimumFractionDigits: 2 })}
-                    </p>
-                    <p>Preço Médio dos Livros</p>
-                </span>
+        <>
+            <div className="container">
+                <h4 className="mt-3">Resumo</h4>
+                <div className="container-fluid ms-5 ps-5">
+                    <span className="btn btn-outline-primary btn-lg">
+                        <p className="badge bg-danger">{resumo.num}</p>
+                        <p>N. de Livros Cadastrados</p>
+                    </span>
+                    <span className="btn btn-outline-primary btn-lg mx-2">
+                        <p className="badge bg-danger">
+                            {Number(resumo.soma).toLocaleString("pt-br", { minimumFractionDigits: 2 })}
+                        </p>
+                        <p>Total Investido em Livros</p>
+                    </span>
+                    <span className="btn btn-outline-primary btn-lg me-2">
+                        <p className="badge bg-danger">
+                            {Number(resumo.maior).toLocaleString("pt-br", { minimumFractionDigits: 2 })}
+                        </p>
+                        <p>Maior Preço Cadastrado</p>
+                    </span>
+                    <span className="btn btn-outline-primary btn-lg">
+                        <p className="badge bg-danger">
+                            {Number(resumo.media).toLocaleString("pt-br", { minimumFractionDigits: 2 })}
+                        </p>
+                        <p>Preço Médio dos Livros</p>
+                    </span>
+                </div>
+
+                <div className="d-flex justify-content-center">
+                    <Chart
+                        width={1000}
+                        height={420}
+                        chartType="ColumnChart"
+                        loader={<div>Carregando Gráfico...</div>}
+                        data={grafico}
+                        options={{
+                            title: "Total de Investimentos em Livros - por Ano de Publicação",
+                            chartArea: { width: "80%" },
+                            hAxis: { title: "Ano de Publicação" },
+                            vAxis: { title: "Preço Acumulado R$" },
+                            legend: { position: "none" },
+                        }}
+                    />
+                </div>
             </div>
 
-            <div className="d-flex justify-content-center">
-                <Chart
-                    width={1000}
-                    height={420}
-                    chartType="ColumnChart"
-                    loader={<div>Carregando Gráfico...</div>}
-                    data={grafico}
-                    options={{
-                        title: "Total de Investimentos em Livros - por Ano de Publicação",
-                        chartArea: { width: "80%" },
-                        hAxis: { title: "Ano de Publicação" },
-                        vAxis: { title: "Preço Acumulado R$" },
-                        legend: { position: "none" },
-                    }}
-                />
-            </div>
-        </div>
+            <Modal aberto={aberto} fechar={() => setAberto(false)}>
+                <h2 className="text-xl font-bold mb-2">!</h2>
+                <p className="text-danger">{erro}</p>
+            </Modal>
+        </>
     );
 };
 export default ResumoLivros;
